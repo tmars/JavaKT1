@@ -21,13 +21,11 @@ public class RandomGeneratorThread extends Thread {
         Random random = new Random();
         while (true) {
             if (!Thread.interrupted()) {
-                synchronized (this.storage) {
-                    int num = random.nextInt(this.count);
-                    System.out.println("generated: " + num);
-                    if (!storage.putNum(num)) {
-                        System.out.println("finish");
-                        return;
-                    }
+                int num = random.nextInt(this.count);
+                System.out.println("generated: " + num);
+                if (!storage.putNum(num)) {
+                    System.out.println("finish");
+                    return;
                 }
             } else {
                 return;

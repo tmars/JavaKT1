@@ -16,9 +16,7 @@ public class CounterThread extends Thread{
     public void run() {
         while (true) {
             if (!Thread.interrupted()) {
-                synchronized (this.storage) {
-                    System.out.println("count = " + this.storage.getCount());
-                }
+                System.out.println("count = " + this.storage.getCount());
             } else {
                 return;
             }
